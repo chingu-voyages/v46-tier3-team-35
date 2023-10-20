@@ -1,36 +1,50 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const validator = require("validator");
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
+const SALT_ROUNDS = 10;
 
-const userSchema = new Schema({
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    email: {
-      type: String,
-      unique: true,
-      trim: true,
-      lowercase: true,
-      required: true,
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+    unique: true, // ensures uniqueness
+    trim: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true, // ensures uniqueness
+    trim: true,
+    lowercase: true,
+    validate: {
+      validator: validator.isEmail, // using validator's isEmail method
+      message: "is invalid",
+      isAsync: false,
     },
-    password: {
-      type: String,
-      trim: true,
-      minLength: 8,
-      required: true,
-    },
-    image: {
-        type: String
-    },
-    country: {
-        type: String
-    },
-    active: {
-        type: Boolean,
-        default: false
-    },
-    favorites: [ {type: Schema.Types.ObjectId, ref: "Crypto"}]
-  }, {
-      timestamps: true
-  });
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  profilePicture: {
+    type: String,
+    required: true,
+  },
+  about: {
+    type: String,
+    required: true,
+  },
+});
 
-  module.exports = mongoose.model("User", userSchema);
+userSchema.pre("save", async function (next) {
+  const user = this;
+  if (user.isModified("password")) {
+    const salt = await bcrypt.genSalt(SALT_ROUNDS);
+    user.password = await bcrypt.hash(user.password, salt);
+  }
+  next();
+});
+
+module.exports = mongoose.model("User", userSchema);
