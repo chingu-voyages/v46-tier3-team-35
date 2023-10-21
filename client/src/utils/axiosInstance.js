@@ -29,9 +29,11 @@ instance.interceptors.response.use(
     const originalRequest = error.config;
 
     if (error.response.status === 401 && !originalRequest._retry) {
+      console.log("access token expired");
+
       originalRequest._retry = true;
 
-      const { data } = await axios.post("users/refresh");
+      const { data } = await instance.get("users/refresh");
       localStorage.setItem("accessToken", data.accessToken);
       console.log("refresh successful");
 
