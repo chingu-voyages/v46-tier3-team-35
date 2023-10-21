@@ -35,10 +35,6 @@ function Login() {
     }
   };
 
-  const handleGoogleLogIn = () => {
-    console.log("unimplemented");
-  };
-
   return (
     <div className="flex flex-col justify-center flex-1 min-h-full sm:px-6 lg:px-8">
       <ToastContainer position="top-right" />
@@ -107,37 +103,6 @@ function Login() {
               </button>
             </div>
           </form>
-
-          <div>
-            <div className="relative mt-10">
-              <div
-                className="absolute inset-0 flex items-center"
-                aria-hidden="true"
-              >
-                <div className="w-full border-t border-gray-200" />
-              </div>
-              <div className="relative flex justify-center text-sm font-medium leading-6">
-                <span className="px-6 text-gray-900 bg-white">
-                  Or continue with
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <button
-                className="flex w-full items-center justify-center gap-3 rounded-md px-3 py-1.5 text-gray-700 font-semibold text-lg border-2 border-gray-100 hover:bg-[#e9e9ea] hover:border-transparent"
-                type="button"
-                onClick={handleGoogleLogIn}
-              >
-                <img
-                  src="https://res.cloudinary.com/yilin1234/image/upload/v1692507925/Google__G__Logo.svg_notatb.png"
-                  alt="Google Logo"
-                  className="w-5 h-5"
-                />
-                <span className="text-sm font-semibold leading-6">Google</span>
-              </button>
-            </div>
-          </div>
         </div>
 
         <p className="mt-5 text-sm text-center text-gray-500">
