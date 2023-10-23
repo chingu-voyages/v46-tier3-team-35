@@ -28,7 +28,7 @@ const handleAuthentication = () => {
   auth0Const.parseHash((err, authResult) => {
     if (authResult && authResult.accessToken && authResult.idToken) {
       setSession(authResult);
-      window.location.assign("http://localhost:5173/");
+      window.location.assign("http://localhost:5173/dashboard");
     } else if (err) {
       alert(`Error: ${err.error}. Check the console for further details.`);
       console.log(err);
