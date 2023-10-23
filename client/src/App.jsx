@@ -1,41 +1,40 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 import ApiFetch from './Api'
+import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
+import { Home } from "./Home";
+import { Profile } from "./Profile";
+import { Nav } from "./Nav";
+import { Auth } from "./Auth/Auth";
+import { Callback } from "./Callback";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-
-
+  const authConst = Auth;
   
-
   return (
-    <>
-      <div>
-        <ApiFetch/>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <BrowserRouter>
+      <ApiFetch/>
+      <Nav auth={authConst} />
+      <div className="body">
+        <Routes>
+          <Route path="/" element={<Home auth={authConst} />} />
+          <Route
+            path="/callback"
+            element={<Callback auth={authConst} loc={location} />}
+          />
+          <Route
+            path="/profile"
+            element={
+              authConst.isAuthenticated() ? (
+                <Profile auth={authConst} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
