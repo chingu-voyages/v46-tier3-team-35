@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const Profile = ({ auth }) => {
+function Profile({ auth }) {
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState("");
 
@@ -26,4 +26,6 @@ export const Profile = ({ auth }) => {
       </div>
     )
   );
-};
+}
+
+export default Profile;
