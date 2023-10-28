@@ -4,6 +4,8 @@ import { Profile } from "./Profile";
 import { Nav } from "./Nav";
 import { Auth } from "./Auth/Auth";
 import { Callback } from "./Callback";
+import Detail from "./Detail";
+import Prices from "./Prices";
 
 function App() {
   const authConst = Auth;
@@ -28,6 +30,13 @@ function App() {
               )
             }
           />
+          <Route
+            path="/prices"
+            element={
+              authConst.isAuthenticated() ? <Prices /> : <Navigate to="/" />
+            }
+          />
+          <Route path="/coin/:id" element={<Detail />} />
         </Routes>
       </div>
     </BrowserRouter>
