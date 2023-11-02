@@ -38,7 +38,6 @@ function Prices() {
         };
         const { data } = await axios.get(endpoint, { params });
         setCurrencies(data);
-        console.log(data);
       } catch (error) {
         console.error(error);
       } finally {
