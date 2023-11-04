@@ -16,9 +16,6 @@ export const Nav = ({ auth }) => {
             <li>
               <Link to="/prices">Prices</Link>
             </li>
-            <li>
-              <Link to="/favorite">Favorite</Link>
-            </li>
           </>
         )}
         <li>
