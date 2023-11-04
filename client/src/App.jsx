@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 
 import { Home } from "./Home";
@@ -12,19 +12,19 @@ import Favorite from "./Favorite";
 
 function App() {
   const authConst = Auth;
-  // const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState(null);
 
-  // const loadUserProfile = useCallback(() => {
-  //   authConst.getProfile((profile, error) => setProfile({ profile, error }));
-  // }, [authConst]);
+  const loadUserProfile = useCallback(() => {
+    authConst.getProfile((profile, error) => setProfile({ profile, error }));
+  }, [authConst]);
 
-  // useEffect(() => {
-  //   loadUserProfile();
-  // }, [loadUserProfile]);
+  useEffect(() => {
+    loadUserProfile();
+  }, [loadUserProfile]);
 
-  // if (!profile) {
-  //   return <div>Loading...</div>;
-  // }
+  if (!profile) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <BrowserRouter>
@@ -56,7 +56,7 @@ function App() {
             path="/coin/:id"
             element={
               authConst.isAuthenticated() ? (
-                <Detail email="chinesejasonlin@gmail.com" />
+                <Detail email={profile.profile.email} />
               ) : (
                 <Navigate to="/" />
               )
@@ -66,7 +66,7 @@ function App() {
             path="/favorite"
             element={
               authConst.isAuthenticated() ? (
-                <Favorite email="chinesejasonlin@gmail.com" />
+                <Favorite email={profile.profile.email} />
               ) : (
                 <Navigate to="/" />
               )
