@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-function Favorite({ auth }) {
+function Favorite(props) {
   const [likedCoins, setLikedCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [profile, setProfile] = useState("");
   const [profileEmail, setProfileEmail] = useState("");
   const [userLoggedIn, setUserLoggedIn] = useState("");
+  const auth = props.auth;
+
   useEffect(() => {
     setUserLoggedIn(auth.isAuthenticated());
   }, [auth]);
@@ -67,7 +69,7 @@ function Favorite({ auth }) {
   }
 
   return (
-    <div className="overflow-x-auto p-2">
+    <div style={{ overflowX: "scroll" }}>
       <div className="max-w-3xl mx-auto overflow-hidden rounded-lg shadow">
         <table className="table w-full" data-theme="light">
           <thead>
@@ -85,13 +87,13 @@ function Favorite({ auth }) {
                   {index + 1}
                 </th>
                 <td>
-                  <Link to={`/coin/${coin.name}`}>
+                  <Link to={`/coin/${coin.name.toLowerCase()}`}>
                     <img className="h-8" src={coin.image} alt={coin.symbol} />
                   </Link>
                 </td>
                 <td>
                   <Link
-                    to={`/coin/${coin.name}`}
+                    to={`/coin/${coin.name.toLowerCase()}`}
                     className="font-semibold text-[#333333]"
                   >
                     {coin.name.charAt(0).toUpperCase() + coin.name.slice(1)}
