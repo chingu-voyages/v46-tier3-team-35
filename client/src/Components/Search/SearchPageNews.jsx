@@ -18,16 +18,7 @@ function SearchPageNews(props) {
   return (
     <div>
       <div
-        className="artboard phone-2"
-        style={{
-          backgroundColor: "aliceblue",
-          height: 400,
-          marginLeft: 30,
-          marginTop: 450,
-          borderRadius: 10,
-          overflowX: "hidden",
-          overflowY: "auto",
-        }}
+        className="Search-page-news-div"
       >
         <h2 className="News-title">News</h2>
         <p className="Trending">Trending</p>

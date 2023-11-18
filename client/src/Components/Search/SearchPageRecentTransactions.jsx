@@ -12,16 +12,7 @@ function RecentTransactions(props) {
   return (
     <div>
       <div
-        className="artboard phone-2"
-        style={{
-          backgroundColor: "aliceblue",
-          height: 400,
-          marginLeft: 50,
-          marginTop: 450,
-          borderRadius: 10,
-          overflowX: "hidden",
-          overflowY: "auto",
-        }}
+        className="Recent-transactions-div"
       >
         <h2 className="Recent-Transactions-Header">Recent Activity</h2>
         {cryptoInfo.length === undefined
