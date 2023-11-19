@@ -57,7 +57,7 @@ const HistoryChart = (props) => {
   };
 
   return (
-    <div>
+    <div className="history-chart">
       <Line options={options} data={data} />
     </div>
   );

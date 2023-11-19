@@ -5,16 +5,7 @@ function Description(props) {
   return (
     <div>
       <div
-        className="artboard phone-2"
-        style={{
-          backgroundColor: "aliceblue",
-          height: 400,
-          marginLeft: 50,
-          marginTop: 450,
-          borderRadius: 10,
-          overflowX: "hidden",
-          overflowY: "auto",
-        }}
+        className="Search-page-description-div"
       >
          {cryptoInfo.length === undefined ? (
            <div>

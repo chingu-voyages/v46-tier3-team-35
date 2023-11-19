@@ -1,8 +1,48 @@
 body {
   width: 100%;
 }
+
+.search-icon {
+  margin-top: 6px;
+}
 .mb-5 {
   margin-left: -30px;
+}
+.App-name {
+  font-size: 25px;
+  font-weight: 600;
+}
+.Search-handler {
+  margin-right: 30px;
+  font-size: 20px;
+  margin-left: 10px;
+}
+.search {
+  display: flex;
+}
+@media (max-width: 599px) {
+  .search input {
+    width: 100px;
+  }
+  .App-name {
+    transform: translate(-22.5%, 5%);
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .Search-handler {
+    margin-right: 0px;
+    margin-left: -10px;
+  }
+  .search {
+    display: flex;
+    transform: translate(23.5%, 5%);
+  }
+}
+.profile-nav-Active {
+  width: 100%;
+}
+.profile-nav-non-Active {
+  width: 100%;
 }
 .non-Active2 {
   background-color: transparent;

@@ -1,4 +1,4 @@
-import './App.css'
+import "./App.css";
 import {
   Route,
   BrowserRouter,
@@ -21,11 +21,12 @@ import Favorite from "./Favorite";
 import SearchPage from "./Components/Routes/SearchPage";
 import TopCryptos from "./Components/Routes/TopCryptos";
 import CategoriesList from "./Components/Routes/CategoriesList";
-import CryptoList from "./Components/Routes/CryptoList";
-
+import CryptoList from "./Components/Routes/CryptoList"
 function App() {
   const authConst = Auth;
   const [search, setSearch] = useState("");
+
+  console.log(search)
   return (
     <>
       <BrowserRouter>
@@ -66,7 +67,10 @@ function App() {
                 path="/dashboard"
                 element={<Dashboard search={search} />}
               />
-              <Route path="/search" element={<SearchPage search={search} />} />
+              <Route
+                path="/search"
+                element={<SearchPage search={search} auth={authConst} />}
+              />
               <Route
                 path="/topCryptos"
                 element={<TopCryptos search={search} setSearch={setSearch} />}

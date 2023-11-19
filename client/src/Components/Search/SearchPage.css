@@ -1,7 +1,22 @@
 body {
   background-color: #e5e4e2;
+  overflow-x: hidden;
 }
 
+.relative {
+  margin-left: 40px;
+}
+
+.searchPage {
+  margin-right: 220px;
+}
+@media (max-width: 599px) {
+  .searchPage {
+    margin-right: 20px;
+  width: 100%;
+    margin-top: -100px;
+  }
+}
 .crypto-picture {
   font-size: 10px;
   margin-left: 10px;
@@ -25,8 +40,11 @@ body {
   padding-top: 10px;
   color: black;
 }
-.stock-Info {
-  /* margin-top: 100px; */
+.mobile-dash-board {
+  display: none;
+}
+.mobile-dash-board-navbar {
+  display: none;
 }
 .hr-change-percent {
   margin-bottom: 22px;
@@ -37,6 +55,195 @@ body {
   margin-top: 10px;
   display: grid;
   height: 300px;
+}
+
+.Search-page-chart {
+  background-color: white;
+  margin-left: 50px;
+  border-radius: 15px;
+  margin-top: 25px;
+  width: 800px;
+  height: 500px;
+}
+.history-chart {
+  margin-top: -20px;
+  height: 100%;
+  width: 100%;
+}
+@media (max-width: 599px) {
+  .crypto-header{
+    margin-top:0px;
+  }
+  .px-4 {
+    margin-left: -49px;
+  }
+  .mobile-dash-board {
+    display: block;
+    transform: translate(-117%, 0%);
+  }
+  .mobile-dash-board-navbar {
+    display: block;
+    transform: translate(7%, 0%);
+  }
+  body {
+    background-color: #e5e4e2;
+    width: 100%;
+  }
+  .Search-page-chart {
+    margin-left: 0px;
+    margin-top: 15px;
+    width: 370px;
+    height: 400px;
+    transform: translate(0.5%, 5%);
+  }
+  .top-cryptos-details button {
+    transform: translate(-60%, -30%);
+  }
+  .top-cryptos-price {
+    margin-left: -15px;
+  }
+  .table-label {
+    display: none;
+  }
+  .crypto-image {
+    width: 100%;
+  }
+  .search-chart .artboard {
+    background-color: white;
+    margin-left: 50px;
+    border-radius: 15px;
+    margin-top: 25px;
+    width: 100px;
+    height: 150px;
+  }
+  .history-chart {
+    margin-top: 20px;
+    height: 100%;
+    width: 100%;
+  }
+}
+.overflow-x-auto {
+  margin-left: -1400px;
+}
+
+.overflow-x-auto .table {
+  width: 1400px;
+}
+.search-page-news {
+  display: flex;
+}
+
+.Search-page-description-div {
+  background-color: aliceblue;
+  height: 400px;
+  width: 380px;
+  margin-left: 50px;
+  margin-top: 450px;
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.Search-page-news-div {
+  background-color: aliceblue;
+  height: 400px;
+  width: 380px;
+  margin-left: 50px;
+  margin-top: 450px;
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.Recent-transactions-div {
+  background-color: aliceblue;
+  height: 400px;
+  width: 380px;
+  margin-left: 50px;
+  margin-top: 450px;
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.mobile-stats {
+  display: none;
+}
+.mobile-search-dash-board{
+  display: none;
+}
+@media (max-width: 599px) {
+  .mobile-search-dash-board{
+    display: block;
+    margin-top:140px;
+    transform: translate(8%, -22%);
+  }
+  .mobile-stats {
+    display: block;
+  }
+  .search-page-news {
+    display: inline;
+    transform: translate(-22%, -0%);
+  }
+  .Search-page-description-div {
+    height: 400px;
+    width: 370px;
+    margin-left: 0px;
+    margin-top: 150px;
+    margin-bottom: 480px;
+    transform: translate(-1.5%, -0%);
+  }
+  .Search-page-news-div {
+    width: 370px;
+    height: 400px;
+    margin-left: 0px;
+    margin-top: 150px;
+    transform: translate(0.5%, -0%);
+  }
+  .Recent-transactions-div {
+    height: 400px;
+    width: 370px;
+    margin-left: 0px;
+    margin-top: 450px;
+    transform: translate(0.5%, -0%);
+  }
+  .Mobile-stats-div {
+    border-radius: 10px;
+
+    overflow-y: auto;
+    background-color: aliceblue;
+    height: 400px;
+    width: 370px;
+    margin-left: 0px;
+    margin-top: 100px;
+    transform: translate(4%, -0%);
+  }
+  .Mobile-stats-div .stat {
+    margin-top: -10px;
+  }
+  .Mobile-stats-div .stat-title {
+    margin-top: 10px;
+  }
+
+  .overflow-x-auto {
+    margin-top: 200px;
+    width: 400px;
+    overflow-x: scroll;
+    margin-left: -738px;
+  }
+
+  .stats-page {
+    display: none;
+  }
+  .table {
+    overflow-x: auto;
+  }
+  .overflow-x-auto .table {
+    width: 400px;
+  }
+  .CryptoList-data {
+    display: none;
+  }
+  .CryptoList-details {
+    transform: translate(-12%, -0%);
+  }
 }
 
 .player {
@@ -111,6 +318,7 @@ body {
 .Supply-Result {
   margin-top: -10px;
 }
+
 .stats {
   width: 1200px;
   margin-top: 50px;
@@ -183,14 +391,30 @@ body {
   margin-top: 1px;
   width: 200px;
 }
+.Trade-div {
+  margin-left: 80px;
+  height: 400px;
+  margin-top: -702px;
+}
 .Trade-div button {
   border-radius: 10px;
-  margin-left: 70px;
+  margin-left: 50px;
   position: absolute;
   top: 260px;
   height: 70px;
   width: 250px;
   background-color: aliceblue;
+}
+@media (max-width: 599px) {
+  .Trade-div {
+    margin-left: -890px;
+    height: 400px;
+    margin-top: -702px;
+    transform: translate(0.5%, 600%);
+  }
+  .Trade-div button {
+    margin-left: 48px;
+  }
 }
 
 .Crypto-info {
